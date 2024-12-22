@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="41e94e1a-e30e-406c-985d-f2800c6a72ac">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+	<field name="candidateName" class="java.lang.String"></field>
+	<field name="offerDate" class="java.lang.String"></field>
+	<field name="dateOfJoining" class="java.lang.String"></field>
+	<field name="jobTitle" class="java.lang.String"></field>
+	<field name="employeeCode" class="java.lang.String"></field>
+
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="607" splitType="Stretch">
+			<image>
+				<reportElement x="20" y="0" width="140" height="90" uuid="ffb029b7-c341-4443-8f31-f5a89c99798f"/>
+				<imageExpression><![CDATA["report/EutuxiaTech/logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="90" width="280" height="30" uuid="ab5613c5-661b-425b-9aba-b6485e771768"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A One Stop place for IT Solutions, Consulting & Skills]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="180" width="110" height="20" uuid="d274e6e2-19cc-4733-bd92-e1eaa0939418"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{candidateName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="220" width="180" height="20" uuid="d61147e1-8ea6-43ce-b0e0-b90f2496d572"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO WHOMSOVER IT MAY CONCERN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="260" width="100" height="20" uuid="9db0581c-1244-46bf-8ff7-465e7638678d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[This is to certify that]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="310" width="340" height="30" uuid="b5aaccd3-5293-419e-b76a-eb87327e0df0"/>
+				<text><![CDATA[We wish him all the best in his future endeavors.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="340" width="110" height="20" uuid="7ce701f9-b317-4abb-99e7-f9ad0283dba4"/>
+				<text><![CDATA[Best Wishes,]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="360" width="110" height="30" uuid="3445e635-b8db-46d3-8322-b0f628e7a1c2"/>
+				<imageExpression><![CDATA["report/EutuxiaTech/signature.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="410" width="170" height="40" uuid="8f78da4b-1e8c-4f5d-93d4-c08d15d9b3ed"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Manager-Human Resources               EutuxiaTech]]></text>
+			</staticText>
+			<line>
+				<reportElement x="187" y="240" width="179" height="1" uuid="2640171b-390a-484e-8613-2dc5bca02996"/>
+			</line>
+			<staticText>
+				<reportElement x="20" y="211" width="80" height="19" uuid="4e1cf2bc-3390-4258-b0b0-996121c139c0"/>
+				<text><![CDATA[Employee ID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="260" width="250" height="20" uuid="6168a77d-a476-4853-b85e-df713326caad"/>
+				<text><![CDATA[was associated with Eutuxia Tech Private Limited from]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="279" width="20" height="20" uuid="3303c5a7-56b6-40f3-bac6-6e1daa413040"/>
+				<text><![CDATA[to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="281" width="190" height="16" uuid="38c698c4-5739-45da-b016-ce2b7f17cc30"/>
+				<text><![CDATA[At a time of relieving his designation was]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="211" width="60" height="18" uuid="2ccdfda0-8343-4004-987a-b7fab587673e"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="130" width="30" height="20" uuid="1c521621-5ccb-4b7a-a7f6-bc5f68b5ae41"/>
+				<text><![CDATA[Date: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="130" width="114" height="20" uuid="74aa404e-b9f0-4a86-a713-b733364984db"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["August 01,2019"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="261" width="110" height="18" uuid="9575a461-eabe-4c84-8ae8-ff990213b439"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{candidateName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="260" width="94" height="20" uuid="fcd2c950-575c-424d-abf1-13e671b47061"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["October 04, 2017"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="280" width="80" height="18" uuid="fc85698f-fdad-4638-bb23-5848185ac7b0"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["August 01, 2019"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="281" width="190" height="18" uuid="87e921d7-8753-4188-8dc0-66b1042a7c09"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jobTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="390" width="100" height="20" uuid="b1e894c1-c01e-48a6-bb4e-3114fd6d34a3"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sanjay Kumar"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

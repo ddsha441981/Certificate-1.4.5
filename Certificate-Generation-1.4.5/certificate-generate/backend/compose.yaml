@@ -1,0 +1,121 @@
+version: "3.9"
+services:
+  certificate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      POSTGRES_URL: "jdbc:postgresql://postgresdb:5432/certificate"
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "root"
+      SPRING_APPLICATION_JSON: |
+        {
+           "spring.datasource.url": "jdbc:postgresql://postgresdb:5432/certificate",
+           "spring.datasource.username": "postgres",
+           "spring.datasource.password": "root",
+           "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.PostgreSQLDialect",
+           "spring.jpa.hibernate.ddl-auto": "update",
+           "spring.redis.host": "redis",
+           "spring.redis.port": 6379,
+           "token.signing.key": "413F4428472B4B6250655368566D5970337336763979244226452948404D6351"
+        }
+    volumes:
+      - ./tmp:/tmp
+      - ./logs:/logs
+    ports:
+      - "9593:9593"
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - main-network
+
+  postgresdb:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - main-network
+
+  redis:
+    image: redis:7
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - main-network
+
+volumes:
+  db-data: # Named volume for Postgres database
+  logs: # Named volume for logs (optional)
+
+networks:
+  main-network:
+    external: true
+
+
+
+
+
+
+
+
+
+#services:
+#  certificate-app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    environment:
+#      SPRING_PROFILES_ACTIVE: dev
+#      POSTGRES_URL: "jdbc:postgresql://postgresdb:5432/certificate"
+#      POSTGRES_USERNAME: "postgres"
+#      POSTGRES_PASSWORD: "root"
+##      LOG_DIR: /var/log/certificate
+#
+#      SPRING_APPLICATION_JSON: |
+#        {
+#           "spring.datasource.url": "jdbc:postgresql://postgresdb:5432/certificate",
+#           "spring.datasource.username": "postgres",
+#           "spring.datasource.password": "root",
+#           "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.PostgreSQLDialect",
+#           "spring.jpa.hibernate.ddl-auto": "update",
+#           "spring.redis.host": "redis",
+#           "spring.redis.port": 6379,
+#           "token.signing.key": "413F4428472B4B6250655368566D5970337336763979244226452948404D6351"
+#        }
+##    volumes:
+##      - ./certificate:/var/log/certificate
+#    ports:
+#      - "9593:9593"
+#    depends_on:
+#      postgresdb:
+#        condition: service_healthy
+#      redis:
+#        condition: service_healthy
+#      kafka:
+#        condition: service_started
+#    networks:
+#      - main-network
+##volumes:
+##  db:
+##  certificate:
+#volumes:
+#  - ./tmp:/tmp
+#  - ./logs:/logs
+#networks:
+#  main-network:
+#    external: true

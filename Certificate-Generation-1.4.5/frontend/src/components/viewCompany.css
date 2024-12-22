@@ -1,0 +1,42 @@
+.company-profile {
+    margin-top: 20px;
+}
+
+.company-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.address-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.documents-section {
+    margin-top: 30px;
+}
+
+.documents-section .card {
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+}
+
+@media (max-width: 768px) {
+    .company-details {
+        flex-direction: column;
+    }
+
+    .company-logo {
+        margin: 0 auto 20px;
+    }
+
+    .card {
+        margin: 0;
+    }
+}

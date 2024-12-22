@@ -1,0 +1,4 @@
+com\cwc\certificate\services\UserServiceTests.class
+com\cwc\certificate\CertificateApplicationTests.class
+com\cwc\certificate\services\TaxSlabServiceImplTests.class
+com\cwc\certificate\services\UserServiceImplTests.class

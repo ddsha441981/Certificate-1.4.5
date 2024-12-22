@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="41e94e1a-e30e-406c-985d-f2800c6a72ac">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+    <field name="candidateName" class="java.lang.String"></field>
+    <field name="offerDate" class="java.lang.String"></field>
+    <field name="dateOfJoining" class="java.lang.String"></field>
+    <field name="jobTitle" class="java.lang.String"></field>
+    <field name="employeeCode" class="java.lang.String"></field>
+
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="607" splitType="Stretch">
+            <image>
+                <reportElement x="20" y="0" width="140" height="90" uuid="ffb029b7-c341-4443-8f31-f5a89c99798f"/>
+                <imageExpression><![CDATA["report/EutuxiaTech/logo.png"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="20" y="90" width="280" height="30" uuid="ab5613c5-661b-425b-9aba-b6485e771768"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[A One Stop place for IT Solutions, Consulting & Skills]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="20" y="180" width="110" height="20" uuid="d274e6e2-19cc-4733-bd92-e1eaa0939418"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{candidateName}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="190" y="227" width="180" height="20" uuid="d61147e1-8ea6-43ce-b0e0-b90f2496d572"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[RELIEVING LETTER]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="20" y="289" width="310" height="20" uuid="9db0581c-1244-46bf-8ff7-465e7638678d"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[We are writing in response to the resignation letter you submitted on]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="20" y="326" width="70" height="14" uuid="b5aaccd3-5293-419e-b76a-eb87327e0df0"/>
+                <text><![CDATA[effective from]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="18" y="440" width="110" height="20" uuid="7ce701f9-b317-4abb-99e7-f9ad0283dba4"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Warm Regards,]]></text>
+            </staticText>
+            <image>
+                <reportElement x="18" y="470" width="110" height="30" uuid="3445e635-b8db-46d3-8322-b0f628e7a1c2"/>
+                <imageExpression><![CDATA["report/EutuxiaTech/signature.png"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="20" y="530" width="170" height="40" uuid="8f78da4b-1e8c-4f5d-93d4-c08d15d9b3ed"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Manager-Human Resources               EutuxiaTech]]></text>
+            </staticText>
+            <line>
+                <reportElement x="230" y="240" width="100" height="1" uuid="2640171b-390a-484e-8613-2dc5bca02996"/>
+            </line>
+            <staticText>
+                <reportElement x="20" y="200" width="80" height="19" uuid="4e1cf2bc-3390-4258-b0b0-996121c139c0"/>
+                <text><![CDATA[Employee ID:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="20" y="306" width="530" height="20" uuid="3303c5a7-56b6-40f3-bac6-6e1daa413040"/>
+                <text><![CDATA[that your resignation has been accepted by our management.Therefore, we are officially relieving you from your duties,]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="201" width="60" height="18" uuid="2ccdfda0-8343-4004-987a-b7fab587673e"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["EMP441981"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="420" y="130" width="30" height="20" uuid="1c521621-5ccb-4b7a-a7f6-bc5f68b5ae41"/>
+                <text><![CDATA[Date: ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="450" y="130" width="114" height="20" uuid="74aa404e-b9f0-4a86-a713-b733364984db"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["August 01,2019"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="330" y="289" width="94" height="20" uuid="fcd2c950-575c-424d-abf1-13e671b47061"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["October 04, 2017"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="20" y="510" width="100" height="20" uuid="b1e894c1-c01e-48a6-bb4e-3114fd6d34a3"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Sanjay Kumar"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="20" y="260" width="30" height="17" uuid="62ff9868-5350-45dd-bbeb-87a8a0c2cf62"/>
+                <text><![CDATA[Dear,]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="50" y="260" width="90" height="17" uuid="8119188e-fb22-40b2-ad96-5d5e7ba31d85"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Mahesh Kumar"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="424" y="289" width="400" height="29" uuid="cd693f9d-a090-4da3-a472-2d705125d37f"/>
+                <text><![CDATA[We would like to inform you ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="326" width="100" height="20" uuid="9e92e6ba-ff22-4529-bc87-255e35dd5d64"/>
+                <textElement markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["19th April 2023."]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="20" y="346" width="530" height="55" uuid="70170e72-499a-43f6-8b48-997900bf2fac"/>
+                <text><![CDATA[Before your departure, we kindly request you to visit the clearance department to verify your documents. This will ensure that we properly acknowledge and appreciate the contributions you have made during your tenure with the organization. We genuinely appreciate your dedication and efforts.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="18" y="401" width="524" height="30" uuid="cf1023f0-23fe-40de-9f81-30e210ff5448"/>
+                <text><![CDATA[We wish you the very best in your future endeavors and hope that you find success and fulfillment in your professional journey.]]></text>
+            </staticText>
+        </band>
+    </title>
+</jasperReport>

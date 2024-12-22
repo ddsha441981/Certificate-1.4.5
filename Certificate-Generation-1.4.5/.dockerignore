@@ -1,0 +1,23 @@
+frontend/node_modules/
+
+# React frontend
+frontend/build/
+frontend/dist/
+frontend/*.log
+frontend/*.tmp
+
+# Ignore Maven
+backend/target/
+
+# Ignore IDE files for both React frontend and Spring Boot backend
+frontend/.idea/
+frontend/*.iml
+frontend/*.iws
+backend/.idea/
+backend/*.iml
+backend/*.iws
+
+# Ignore Docker-related files
+.dockerignore
+frontend/Dockerfile
+backend/Dockerfile

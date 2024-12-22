@@ -1,0 +1,2055 @@
+{
+	"info": {
+		"_postman_id": "049add92-e800-4367-bfbc-d1bdec5aa939",
+		"name": "Certificates",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1766959"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Company List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzE0MjI5MzE2LCJleHAiOjE3MTQyMzA3NTZ9.QF6Z2tUadPQRHuE9__WJjpEa_-g26HXZMhFm-OHeIWM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Company List By Pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/pagination/list?sortBy=companyEmail&sortOrder=desc&pageNumber=0&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"pagination",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "companyEmail"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"companyName\": \"dell\",\n  \"companyEmail\":\"abc@gmail.com\",\n  \"companyAddress\":\"abc\",\n  \"companyPhone\":\"1234\",\n  \"companyWebsite\":\"asjj\",\n  \"companyLogo\":\"a.png\",\n  \"signatureAuthorities\":\"b.png\",\n\n  \"documents\": [\n    {\n      \"experienceLetterUrl\": \"option1\",\n      \"relievingLetterUrl\": \"option2\",\n      \"offerLetterUrl\": \"option3\",\n      \"salarySlipUrl\": \"option4\",\n      \"incrementLetterUrl\": \"option5\",\n      \"apparisalLetterUrl\": \"option5\"\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								""
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Company with Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									"var template = `",
+									"<p>Error: Bad Request</p>",
+									"<p>Status: 400</p>",
+									"<p>Content-Type: application/json</p>",
+									"<p>{{response.error}}</p>",
+									"<p>{{response.timestamp}}</p>",
+									"<p>{{response.path}}</p>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()};",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/ddsha/Downloads/undraw_Contact_us_re_4qqt.png"
+								},
+								{
+									"key": "signature",
+									"type": "file",
+									"src": "/C:/Users/ddsha/Downloads/infinity.png"
+								},
+								{
+									"key": "formData",
+									"value": "{\n  \"companyName\": \"samsung\",\n  \"companyEmail\":\"abc@gmail.com\",\n  \"companyAddress\":\"abc\",\n  \"companyPhone\":\"1234\",\n  \"companyWebsite\":\"asjj\",\n \"addresses\": [\n    {\n      \"country\": \"INDIA\",\n      \"zipCode\": \"12345\",\n      \"buildingNumber\": \"123,d block\",\n      \"city\": \"KANPUR\",\n      \"street\": \"Saray Charaha\",\n      \"landmark\": \"Panki Mandir\",\n      \"addressType\": \"HEAD_OFFICE\"\n    }\n  ],\n\n  \"documents\": [\n    {\n      \"experienceLetterUrl\": \"option1\",\n      \"relievingLetterUrl\": \"option2\",\n      \"offerLetterUrl\": \"option3\",\n      \"salarySlipUrl\": \"option4\",\n      \"incrementLetterUrl\": \"option5\",\n      \"apparisalLetterUrl\": \"option5\"\n    }\n  ]\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								""
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Company Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/ddsha/Downloads/Screenshot 2024-03-12 at 20-07-21 ChatGPT.png"
+								},
+								{
+									"key": "signature",
+									"type": "file",
+									"src": "/C:/Users/ddsha/Downloads/infinity.png"
+								},
+								{
+									"key": "formData",
+									"value": "{\n  \"companyName\": \"dell\",\n  \"companyEmail\":\"dell@gmail.com\",\n  \"companyAddress\":\"zxu\",\n  \"companyPhone\":\"1234\",\n  \"companyWebsite\":\"git\",\n \"addresses\": [\n    {\n      \"country\": \"INDIA\",\n      \"zipCode\": \"12345\",\n      \"buildingNumber\": \"123,d block\",\n      \"city\": \"KANPUR\",\n      \"street\": \"Saray Charaha\",\n      \"landmark\": \"Panki Mandir\",\n      \"addressType\": \"HEAD_OFFICE\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"experienceLetterUrl\": \"option1\",\n      \"relievingLetterUrl\": \"option2\",\n      \"offerLetterUrl\": \"option3\",\n      \"salarySlipUrl\": \"option4\",\n      \"incrementLetterUrl\": \"option5\",\n      \"apparisalLetterUrl\": \"option5\"\n    }\n  ]\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"update",
+								"1"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"1"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Documents By Company Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comapnayId\": 1,\r\n  \"documents\": [\r\n    {\r\n            \"experience\": \"option1\",\r\n            \"appriasal\": \"option2\",\r\n            \"offerLetter\": \"option3\",\r\n            \"salarySlip\": \"option4\",\r\n            \"incrementLetter\": \"option5\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/documents/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"documents",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"experience\": \"option1\",\r\n            \"appriasal\": \"option2\",\r\n            \"offerLetter\": \"option3\",\r\n            \"salarySlip\": \"option4\",\r\n            \"incrementLetter\": \"option5\",\r\n            \"company\":{\r\n                \"companyId\":2\r\n            }\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/documentsLink/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"documentsLink",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document get all",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"experience\": \"option1\",\r\n            \"appriasal\": \"option2\",\r\n            \"offerLetter\": \"option3\",\r\n            \"salarySlip\": \"option4\",\r\n            \"incrementLetter\": \"option5\",\r\n            \"company\":{\r\n                \"companyId\":2\r\n            }\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/documentsLink/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"documentsLink",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Documents List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/documents/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"documents",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Company Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/search/name/sam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"search",
+								"name",
+								"sam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get InActive Companies List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/inactivecompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"inactivecompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Active Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/activecompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"activecompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/companies/1/status?status=INACTIVE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"companies",
+								"1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "INACTIVE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/company/soft/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"company",
+								"soft",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jasper Report Doc",
+			"item": [
+				{
+					"name": "Generate Report By Id Jasper",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/docs/pdf/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"docs",
+								"pdf",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Google App Script",
+			"item": [
+				{
+					"name": "Google App Script Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/sc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"sc"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Doc Generate By Google App Script",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/documents/cache/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"documents",
+								"cache",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Script URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Google ID</th>",
+									"        <th>Script URL</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.googleId}}</td>",
+									"        <td>{{response.scriptUrl}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"googleId\":\"document\",\r\n    \"scriptUrl\":\"https://script.google.com/macros/s/AKfycbwBJPhYXwpMHQu2IpBR54kqZtiB0b4yPBYWTUfZXqi14NPbB2BeOv93JqNel6RZWh-L_g/exec\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/script/update/app",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"script",
+								"update",
+								"app"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "With",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/documents/properties/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"documents",
+								"properties",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Certificate",
+			"item": [
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTkyNzgwLCJleHAiOjE3MjIwMTA3ODB9.ySn0XtHfEq427IXJvtcok9h56-GXQRWWwYuZV_dlDi8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"all"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZGVuZGF5YWxrdW1hd2F0MDE2QGdtYWlsLmNvbSIsImlhdCI6MTcxNTY3MTI4NywiZXhwIjoxNzE1Njg5Mjg3fQ.-ryDk1IwPKSkUWtxnwrYhGqXSo3wyebGFvv8g1MSgsQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/id/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"id",
+								"14"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "docs",
+									"type": "file",
+									"src": "/C:/Users/ddsha/Downloads/logo_banner.png"
+								},
+								{
+									"key": "formData",
+									"value": "{\n    \"candidateName\": \"Deendayal Kumawat\",\n    \"selectedCompany\": \"samsung\",\n    \"companyName\":\"samsung\",\n    \"offerDate\": \"2024-02-20\",\n    \"dateOfJoining\": \"2024-02-09\",\n    \"jobTitle\": \"Java Fullstack Developer\",\n    \"employeeCode\": \"Emp441981\",\n    \"fixedSalary\": 320000,\n    \"candidateEmail\":\"abdfdsdtfwddsc@gmail.com\",\n    \"totalGrossSalary\": 369968,\n    \"basicDA\": 146080,\n    \"hra\": 58432,\n    \"specialAllowances\": 115456,\n    \"performanceBonus\": 50000,\n    \"finalFixedSalary\": 319968,\n    \"bank\":{\n        \"bankName\":\"abc Bank\",\n        \"ifscCode\":\"SBI\",\n        \"accountNo\":\"65378465783465\",\n        \"accountHolderName\":\"Deendayal\",\n        \"customerId\":\"64765\",\n        \"uanNumber\":\"dshfjdh\",\n        \"esiNumber\":\"dgfj\"\n    },\n    \"identificationDetails\":{\n        \"aadarNumber\":\"86843684356874\",\n        \"panNumber\":\"749684789jjkgk\",\n        \"documentType\":\"pancard\"\n\n    },\n    \"selectedDocumentTypes\": [\"experienceLetterUrl\", \"relievingLetterUrl\", \"offerLetterUrl\", \"salarySlipUrl\", \"incrementLetterUrl\", \"appraisalLetterUrl\"]\n\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/add/file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"add",
+								"file"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTA2MTIzLCJleHAiOjE3MjE5MjQxMjN9.jLINIhcJ7WdeXjbPnbHkg3V1kBfQG40FEfGl_rl2yX8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"certificateId\": 5,\n        \"candidateName\": \"Deendayal Kumawat\",\n        \"selectedCompany\": \"samsung\",\n        \"offerDate\": \"2024-02-20\",\n        \"dateOfJoining\": \"2024-02-09\",\n        \"jobTitle\": \"Java Fullstack Developer\",\n        \"employeeCode\": \"Emp441981\",\n        \"fixedSalary\": 320000,\n        \"companyName\": \"dfgh\",\n        \"candidateEmail\": \"dhsdjh@gmail.com\",\n        \"totalGrossSalary\": 369968,\n        \"basicDA\": 146080,\n        \"hra\": 58432,\n        \"specialAllowances\": 115456,\n        \"performanceBonus\": 50000,\n        \"finalFixedSalary\": 319968,\n        \"selectedDocumentTypes\": [\n            \"Docuemt1\",\n            \"Docuemt1\",\n            \"Docuemt1\",\n            \"Docuemt1\",\n            \"Docuemt1\",\n            \"Docuemt1\"\n        ]\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"update",
+								"2"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"6"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Certificates By Pagination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzE0MjI5MzE2LCJleHAiOjE3MTQyMzA3NTZ9.QF6Z2tUadPQRHuE9__WJjpEa_-g26HXZMhFm-OHeIWM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/pagination/all?sortBy=certificateId&sortOrder=desc&pageNumber=0&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"pagination",
+								"all"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "certificateId"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Candidate Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/name/search/manoj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"name",
+								"search",
+								"manoj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status For Document Generting",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/1/status?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/certificate/soft/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"certificate",
+								"soft",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salary Expose",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIyNTkxNzA4LCJleHAiOjE3MjI2MDk3MDh9.2jtUFDsJvq7kuuELP4-yT88jzwLW35QIjC4DbKPJ2SY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ctc\":100000,\r\n    \"epf\":21500,\r\n    \"performanceBonus\":50000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/salary/expose/?ctc=1200000&epf=21500&performanceBonus=50000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"salary",
+								"expose",
+								""
+							],
+							"query": [
+								{
+									"key": "ctc",
+									"value": "1200000"
+								},
+								{
+									"key": "epf",
+									"value": "21500"
+								},
+								{
+									"key": "performanceBonus",
+									"value": "50000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Default Salary Values",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTkyNzgwLCJleHAiOjE3MjIwMTA3ODB9.ySn0XtHfEq427IXJvtcok9h56-GXQRWWwYuZV_dlDi8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"gratuity\":14423,\r\n     \"hra\":150000,\r\n     \"profTax\":2400,\r\n     \"medicalInsurance\":7200,\r\n     \"investments80C\":21600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/default/salary/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"default",
+								"salary",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Default Salary Values",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTI0MjA4LCJleHAiOjE3MjE5NDIyMDh9.aCPnmFSdO-mT8OyZ6iGq2XRHqrPuUGopckT4ZCaQRro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"gratuity\":14403,\r\n     \"hra\":150000,\r\n     \"profTax\":2400,\r\n     \"medicalInsurance\":7200,\r\n     \"investments80C\":21500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/default/salary/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"default",
+								"salary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Default Salary Values",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTI0MjA4LCJleHAiOjE3MjE5NDIyMDh9.aCPnmFSdO-mT8OyZ6iGq2XRHqrPuUGopckT4ZCaQRro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"gratuity\":14403,\r\n     \"hra\":150000,\r\n     \"profTax\":2400,\r\n     \"medicalInsurance\":7100,\r\n     \"investments80C\":21500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/default/salary/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"default",
+								"salary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Default Salary Values",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIxOTI0MjA4LCJleHAiOjE3MjE5NDIyMDh9.aCPnmFSdO-mT8OyZ6iGq2XRHqrPuUGopckT4ZCaQRro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"gratuity\":14403,\r\n     \"hra\":150000,\r\n     \"profTax\":2400,\r\n     \"medicalInsurance\":7100,\r\n     \"investments80C\":21500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/default/salary/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"default",
+								"salary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add tax",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"slabLimit\":1500000,\r\n    \"taxRate\":0.10\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v6/tax/expose/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"tax",
+								"expose",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tax",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v6/tax/expose/slabList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"tax",
+								"expose",
+								"slabList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tax By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v6/tax/expose/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v6",
+								"tax",
+								"expose",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salary",
+			"item": [
+				{
+					"name": "Salary Generate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzIyNTk5NTUwLCJleHAiOjE3MjI2MTc1NTB9.VbLwVtSg8uSS_g0Lq8cieVPY8zB-13hVvrRL2MW0WSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v1/salary/generate?salaryFrom=02/08/2024&salaryTo=09/10/2024&salaryMode=3months&certificateId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v1",
+								"salary",
+								"generate"
+							],
+							"query": [
+								{
+									"key": "salaryFrom",
+									"value": "02/08/2024"
+								},
+								{
+									"key": "salaryTo",
+									"value": "09/10/2024"
+								},
+								{
+									"key": "salaryMode",
+									"value": "3months"
+								},
+								{
+									"key": "certificateId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate Pdf",
+			"item": [
+				{
+					"name": "Generate Pdf file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZGVuZGF5YWxrdW1hd2F0MDE2QGdtYWlsLmNvbSIsImlhdCI6MTcxNTczOTYwOCwiZXhwIjoxNzE1NzU3NjA4fQ.rIsx-e3RN5mCtAzTBTTW2l4bMsc6S5eqAEMMkoxlL5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v2/pdf/generate?entityType=certificate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v2",
+								"pdf",
+								"generate"
+							],
+							"query": [
+								{
+									"key": "entityType",
+									"value": "certificate"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate Excel",
+			"item": [
+				{
+					"name": "Generate Excel File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v2/excel/generate?entityType=certificate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v2",
+								"excel",
+								"generate"
+							],
+							"query": [
+								{
+									"key": "entityType",
+									"value": "certificate"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VideoCalling",
+			"item": [
+				{
+					"name": "Video Calling Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"MY_SECRET\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "params",
+									"value": "akjfjksdfkj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Video Calling Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"MY_SECRET\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/auth/admin/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"admin",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sessions",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "MY_SECRET",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\":\"session_id\",\r\n    \"nickname\":\"openvidu_name\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user\", \"password\": \"xxx\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5000/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Communicate Other App",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v4/communicate/admin/details/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v4",
+								"communicate",
+								"admin",
+								"details",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VideoCall Link",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user221user@gmail.com\",\r\n    \"password\": \"$2a$10$bUi9QV8yIHZgSpslHHL0B.XfLLyjjxcgvi4WJxXITTwqIYjOhpWr.\",\r\n    \"firstName\": \"Raise Top\",\r\n    \"lastName\": \"Kumawat\",\r\n    \"role\": \"USER\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra3VtYXdhdDExMTFAZ21haWwuY29tIiwiaWF0IjoxNzE0ODI3MTk2LCJleHAiOjE3MTQ4Mjg2MzZ9.YiFYpUgEVx8RUQsz6W97MUGw0mKr3vpOW-EY_DA_xO8\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v4/communicate/admin/video-link/loginDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v4",
+								"communicate",
+								"admin",
+								"video-link",
+								"loginDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"dob\": \"2014-05-15\",\r\n        \"email\": \"ddendayalkumawat0016@gmail.com\",\r\n        \"firstName\": \"Khusi\",\r\n        \"lastName\": \"Doe\",\r\n        \"password\": \"1234\",\r\n        \"role\": \"USER\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v3/security/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v3",
+								"security",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"deendayal555kumawat@gmail.com\",\r\n    \"password\":\"abc12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v3/security/signing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v3",
+								"security",
+								"signing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Birthday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9593/api/v3/security/upcoming-birthdays",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v3",
+								"security",
+								"upcoming-birthdays"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chatbot",
+			"item": [
+				{
+					"name": "Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9593/api/v5/chatbot/conversation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9593",
+							"path": [
+								"api",
+								"v5",
+								"chatbot",
+								"conversation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

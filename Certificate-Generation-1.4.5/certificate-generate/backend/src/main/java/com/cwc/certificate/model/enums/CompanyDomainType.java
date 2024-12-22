@@ -1,0 +1,29 @@
+package com.cwc.certificate.model.enums;
+
+public enum CompanyDomainType {
+    TECHNOLOGY,
+    FINANCE,
+    HEALTHCARE,
+    EDUCATION,
+    MANUFACTURING,
+    RETAIL,
+    TRANSPORTATION,
+    CONSTRUCTION,
+    HOSPITALITY,
+    ENERGY,
+    TELECOMMUNICATIONS,
+    AGRICULTURE,
+    ENTERTAINMENT,
+    REAL_ESTATE,
+    CONSULTING,
+    FOOD_AND_BEVERAGE,
+    PHARMACEUTICAL,
+    INSURANCE,
+    AUTOMOTIVE,
+    MEDIA,
+    AEROSPACE,
+    GOVERNMENT,
+    LEGAL,
+    NON_PROFIT
+}
+

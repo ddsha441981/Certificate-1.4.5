@@ -1,0 +1,42 @@
+package rules;
+
+import com.cwc.certificate.utility.tax.TaxCalculator;
+global TaxCalculator taxCalculator;
+
+rule "Calculate Tax for Slab 1"
+when
+    $taxCalculator : TaxCalculator(taxableIncome <= taxSlab1Limit)
+then
+    $taxCalculator.setTax(0.0);
+    $taxCalculator.setAppliedTaxSlab("Slab 1");
+end
+
+rule "Calculate Tax for Slab 2"
+when
+    $taxCalculator : TaxCalculator(taxableIncome > taxSlab1Limit && taxableIncome <= taxSlab2Limit)
+then
+    double tax = ($taxCalculator.getTaxableIncome() - $taxCalculator.getTaxSlab1Limit()) * $taxCalculator.getTaxSlab1Rate();
+    $taxCalculator.setTax(tax);
+    $taxCalculator.setAppliedTaxSlab("Slab 2");
+end
+
+rule "Calculate Tax for Slab 3"
+when
+    $taxCalculator : TaxCalculator(taxableIncome > taxSlab2Limit && taxableIncome <= taxSlab3Limit)
+then
+    double tax = ($taxCalculator.getTaxSlab2Limit() - $taxCalculator.getTaxSlab1Limit()) * $taxCalculator.getTaxSlab1Rate() +
+                 ($taxCalculator.getTaxableIncome() - $taxCalculator.getTaxSlab2Limit()) * $taxCalculator.getTaxSlab2Rate();
+    $taxCalculator.setTax(tax);
+    $taxCalculator.setAppliedTaxSlab("Slab 3");
+end
+
+rule "Calculate Tax Above Slab 3"
+when
+    $taxCalculator : TaxCalculator(taxableIncome > taxSlab3Limit)
+then
+    double tax = ($taxCalculator.getTaxSlab2Limit() - taxCalculator.getTaxSlab1Limit()) * taxCalculator.getTaxSlab1Rate() +
+                 ($taxCalculator.getTaxSlab3Limit() - taxCalculator.getTaxSlab2Limit()) * taxCalculator.getTaxSlab2Rate() +
+                 ($taxCalculator.getTaxableIncome() - taxCalculator.getTaxSlab3Limit()) * taxCalculator.getTaxAbove750000Rate();
+    $taxCalculator.setTax(tax);
+    $taxCalculator.setAppliedTaxSlab("Above Slab 3");
+end

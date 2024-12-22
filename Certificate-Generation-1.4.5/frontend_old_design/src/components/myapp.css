@@ -1,0 +1,262 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Sidebar CSS                                */
+/* -------------------------------------------------------------------------- */
+
+/* .secondarylist:hover {
+    color: #d3f008 !important;
+} */
+
+/* .a:hover{
+    color: #e3e9ef;
+} */
+
+.sidebar  li.nav-item a.nav-link {
+    color: #e1dfe7; 
+}
+
+.sidebar  li.nav-item a.nav-link:hover {
+    color: #d3f008 !important; 
+}
+
+.sidebar ul li.nav-item.selected a.nav-link {
+    color: #2fcc13; 
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000306;
+    padding: 20px;
+    transition: width 0.5s;
+    margin-top: 50px;
+}
+
+.sidebar ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Dashboard CSS                               */
+/* -------------------------------------------------------------------------- */
+.margin-dashboard{
+    margin-top: -2rem !important;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Navbar CSS                                 */
+/* -------------------------------------------------------------------------- */
+.navbar-bg{
+    background-color: #000306;
+}
+
+.main-content {
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 10px;
+    transition: margin-left 0.5s;
+}
+
+.text-center {
+    text-align: center;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: blue;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px; 
+  }
+
+  /* .card{
+    margin: 10px;
+  } */
+
+  .card {
+    border: none; /* Remove border from the card */
+  }
+  
+  .smart-card-view smart-card .card-header, .card .card-header {
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-properties{
+    margin-top: 10px;
+}
+
+
+/* .table td, .table th , .table tbody {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #e63f24;
+    
+
+} */
+.table-bordered td, .table-bordered th {
+    border: 0px solid #37536f;
+      border-top-width: 0px;
+      border-top-style: solid;
+      border-top-color: rgb(73, 145, 85);
+}
+/* .card-header:first-child {
+    border-radius: 4px 4px 0 0;
+} */
+
+  
+  
+  
+ 
+  
+  
+  
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Teams CSS                                 */
+/* -------------------------------------------------------------------------- */
+
+.card-body {
+    padding: 20px;
+}
+
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.team-member img {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.team-member h6 {
+    margin-top: 10px;
+}
+
+
+.tbl-image-gap{
+    display: flex;
+    gap: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Footer CSS                                 */
+/* -------------------------------------------------------------------------- */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Logo CSS                                  */
+/* -------------------------------------------------------------------------- */
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking-image {
+    animation: blink 1s infinite;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Contact Us image                              */
+/* -------------------------------------------------------------------------- */
+
+  .image-properties{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+
+  }
+
+  .image-contact_us{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                               Google Map CSS                               */
+  /* -------------------------------------------------------------------------- */
+
+  .map-properties{
+    width:1100px;
+    height: 450px;
+    border: 0px;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                       Additional Information Line CSS                      */
+  /* -------------------------------------------------------------------------- */
+  .line {
+    border-bottom: 4px solid #222dd3;
+    text-align: center;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.line span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                To view Image                               */
+/* -------------------------------------------------------------------------- */
+
+.round-image {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+
+.card-agligns{
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+}
+
+
+.msgFile{
+    margin:0px;
+    padding:0px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+    object-fit: cover;
+}

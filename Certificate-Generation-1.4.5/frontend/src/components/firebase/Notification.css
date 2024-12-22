@@ -1,0 +1,63 @@
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 300px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .notification-body {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .close-btn {
+    background-color: #f44;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  
+  .close-btn:hover {
+    background-color: #d33;
+  }
+  
+
+  @media (max-width: 600px) {
+    .notification-container {
+      width: 100%;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .notification-container {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    .notification-title {
+      font-size: 14px;
+    }
+  
+    .notification-body {
+      font-size: 12px;
+    }
+  }
+  
